@@ -15,7 +15,7 @@ result = {}
 
 def myfunc(e):
     return e['age']
-# aaaaaaaa
+
 
 data.sort(key=myfunc,reverse=True)
 print(data)
