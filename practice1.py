@@ -1,6 +1,6 @@
 # 1) Get a string from a given string where all occurrences of its 
 # first char have been changed to '$', except the first char itself.
-
+### aaaaaaa
 
 def replace(my_str):
     first_el = my_str[0]
