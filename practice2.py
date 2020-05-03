@@ -29,22 +29,25 @@ def sort_func(amount, bigger_price):
 # print(sort_func(2, bigger_price))
 info = requests.get('https://lego-super-heroes.herokuapp.com/')
 content = info.json()
-def name_all(data):
+
+
+def name_all(data, url):
+    info = requests.get(url)
+    data = info.json()
     name = []
     for i, j in enumerate(data):
         name.append(data[i]['name'])
     return name
 
-# print(name_all(content))
 
-def weapon(data):
-    nw = []
-    for i, j in enumerate(data):
-        if data[i]['weapon'] != '':
-            nw.append({data[i]['name']:data[i]['weapon']})
+# print(name_all(content, 'https://lego-super-heroes.herokuapp.com/'))
+
+
+def weapon(data, url):
+    info = requests.get(url)
+    data = info.json()
+    nw = [{data[i]['name']: data[i]['weapon']} for i, j in enumerate(data) if data[i]['weapon'] != '']
     return nw
 
 
-print(weapon(content))
-
-
+print(weapon(content, 'https://lego-super-heroes.herokuapp.com/'))
